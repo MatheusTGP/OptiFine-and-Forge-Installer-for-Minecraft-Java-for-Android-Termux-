@@ -1,0 +1,2 @@
+# OptiFine-and-Forge-Installer-for-Minecraft-Java-for-Android-Termux-
+Você já pensou em Instalar o OptiFine pelo próprio celular? Você pode agora instalar este script para que o próprio programa executa o Java 17 juntamente com o OptFine ou Forge que você desejar pelo Android! Lembre-se, você também poderá executar um Minecraft-Launcher para gerenciar as Versões, você pode utilizar os lançadores MCinaBox ou PojavLaucher.
