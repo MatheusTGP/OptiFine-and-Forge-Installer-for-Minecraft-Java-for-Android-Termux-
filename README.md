@@ -18,7 +18,8 @@ Agora que você fez a instalação do Termux, você precisará instalar o script
 Más antes lembre-se de instalar o VNC Viewer, pressione aqui para Instalar › [VNCViewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android&hl=pt&gl=US)
 Após isso, vocês pode iniciar o script, para isso, no terminal do Termux você deve passar somente o comando abaixo, caso você deseja cancelar a instalação aperte CTRL + C ou Z
 
-    curl -L -o Builds.sh https://github.com/MatheusTGamerPro/OptiFine-and-Forge-Installer-for-Minecraft-Java-for-Android-Termux-/blob/Python-Projects/Builds.sh | bash Builds.sh
+    cd $HOME && pkg install git && sleep 1 && git clone https://github.com/MatheusTGamerPro/OptiFine-and-Forge-Installer-for-Minecraft-Java-for-Android-Termux- && mv OptiFine-and-Forge-Installer-for-Minecraft-Java-for-Android-Termux- Repository && cd Repository && cp xstartup.sh $HOME && cp Builds.sh $HOME && cd $HOME && mv xstartup.sh xstartup && chmod u+rwx xstartup && cd $HOME && sleep 3 && bash Builds.sh
+
 
 Após executar esse comando, automaticamente o script atualiza e instala o Java e outros Pacotes para o usuário,
 Depois disso precisamos configurar o servidor VNC, para isso.. após fazer a instalação completa, abra o VNC Viewer,
