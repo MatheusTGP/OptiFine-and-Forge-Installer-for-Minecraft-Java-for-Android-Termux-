@@ -25,16 +25,29 @@ Após executar esse comando, automaticamente o script atualiza e instala o Java 
 Depois disso precisamos configurar o servidor VNC, para isso.. após fazer a instalação completa, abra o VNC Viewer,
 Pressione no botão "+" e na entrada de "Adress" ou "Endereço" adicione: ```localhost:1```, esse IP é o endereço onde você visualizará
 A janela do Gerenciador de arquivos, más antes você não deve já iniciar, salve junto com o Endereço e o nome do Computer, após isso volte ao Termux
-E inicie o comando:
+E inicie com o comando:
 
-    vncserver -geometry 500x500
+    vncserver -geometry 1280x720
 
 Este comando iniciara o servidor no "localhost:1" igual colocamos no VNC,
 Após isso irá aparecer a mensagem que o servidor está aberto na porta :1, caso você queira parar o servidor
-Passe o comando no Termux:
+Passe o seguinte comando no Termux:
 
     vncserver -kill :1
 
-Por Favor, sempre feche o servidor ao parar de utilizar o script.
+Por Favor, sempre feche o servidor ao parar de utilizar o script, qualquer erro na execução,
+Me informe no Issues!
 
+# ❗ | Como Utilizar o Script
+Primeiramente, faça o procedimento de instalação, logo depois que estivermos dentro da interface, automaticamente será aberto
+Uma janela que é o Famoso Gerenciador de arquivos "Thunar", ele você poderá ver as pastas que contém no SDcard, más antes você deve permitir
+Acesso ao armazenamento para o Termux (faça isso nas informações do aplicativo), agora que temos o Gerenciador, precisamos procurar o diretório "sdcard"
+E irmos até a pasta onde está localizado o nosso arquivo '.jar' OptiFine, Forge, Launcher.. após encontrarmos o arquivo, você não poderá dar dois toques e iniciar
+O OptFine ou algo do tipo, antes devemos fazer o seguinte passo, pressione com o botão direito no Arquivo (no VNC Viewer pressione a tela com os dois dedos), logo depois
+Selecione para abrir o Arquivo em 'Other Application', irá abrir uma aba de seleção de aplicativos disponíveis, más, você irá em "Comando Personalizado", onde iremos passar
+O parâmetro (comando) necessário para executar o 'jar', ao pressionar digite o seguinte comando: ```java -jar```, após isso pressione para abrir com esse comando,
+Fazendo isso, automaticamente abrirá uma janela do Java, ou melhor, do instalador do OptiFine, Forge, ou Launcher após isso você poderá selecionar onde instalará o OptiFine
+E fazer a instalação. Para executar um Launcher e rodar o Minecraft Java (difícil) necessitara de instalar uma versão do OpenGL, más isso trago mais pra frente.
+
+**Nota**: Você não precisará mais fazer este procedimento, qualquer programa em 'jar' iniciará automaticamente com o Java!😆
 
