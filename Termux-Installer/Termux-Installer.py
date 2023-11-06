@@ -1,47 +1,45 @@
-from os import system as Shell
-from os import mkdir as CreateDiretory
-from shutil import rmtree as remove
-from time import sleep
+from os import system as console
+from time import sleep as wait
 try:
-	from wget import download as Get
+	from wget import download
 except ModuleNotFoundError:
-	Shell('pip install wget')
+	print("Tentando instalar wget.")
+	console('pip install wget')
 
-# Termux Installer For Android
-# Colors for Terminal (Theme)
-
-R = '\033[01;31m'
-G = '\033[01;32m'
-Y = '\033[01;33m'
-B = '\033[01;34m'
-M = '\033[01;35m'
-C = '\033[01;36m'
-W = '\033[01;37m'
-
-def Termux_Installer ():
-	Choice = input("\033[01;35mDeseja Baixar o Apk do Termux [y/n]: \033[01;33m")
-	if Choice == "y":
-		print(W,"Pesquisando Site de Download...")
-		
-		sleep(2)
-
-		URL_Get = 'https://cdn.down-apk.com/com.termux/Termux_0.117_apkcombo.com.apk?ecp=Y29tLnRlcm11eC8wLjExNy8xMTcuNDkxZjIwN2UyODlhYzA1YmNiMzljYTQzNmI1MjE4ZjZhZTgwMWRiZC5hcGs=&iat=1640837450&sig=207f6223508fa8e1ac1cfb4957c9ded1&size=85749239&from=cf&version=latest'
+# Função principal
+def install_termux ():
+	termux_version = get_termux_version()
+	if input("Iniciar download? [y/n]: ") == "y" or "Y":
+		save_folder = "/storage/emulated/0/Download/"
+		repository = f"https://f-droid.org/repo/com.termux_{termux_version}.apk"
 		
 		try:
-			CreateDiretory('/sdcard/Termux-Apk')
-		except FileExistsError:
-			remove('/sdcard/Termux-Apk')
-			CreateDirectory('/sdcard/Termux-Apk')
-		Local = '/sdcard/Termux-Apk/'
+			print(f"\nBaixando Termux v{termux_version}")
+			download(repository, save_folder)
+		except KeyboardInterruptException:
+			print("Download interrompido.")
 		
-		sleep(1)
-	
-		print(G,"\nIniciando Download do APK...",W)
-	
-		Get(URL_Get, Local)
-	
-		print(f"\nAPK do Termux Baixado com sucesso, vá até: {Local}")
+		wait(1)
+		print(f"\nDownload concluido, salvo em '{save_folder}'")
 	else:
-		print(R,"Instalaçao Cancelada.",W)
-
-Termux_Installer()
+		print("Download cancelado")
+	
+# Liste e colete versões disponiveis do Termux
+def get_termux_version():
+	versions = ["118", "117", "116"]
+	count = 0
+	print("Selecione qual versão deseja baixar.\n")
+	for version in versions:
+		count += 1
+		if (version == "118"):
+			print(f"({count}) Termux v{version} [Recomendado]")
+		else:
+			print(f"({count}) Termux v{version}")
+	
+	option = int(input("\nopção: "))
+	if (option in versions):
+		return versions[option]
+	else:
+		return versions[0] # Pegue a versão mais recente
+		
+install_termux()
